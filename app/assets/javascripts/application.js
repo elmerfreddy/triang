@@ -19,5 +19,3 @@
 //= require_self
 //= require triang
 Triang = Ember.Application.create();
-
-//= require_tree .
