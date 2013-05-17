@@ -25,12 +25,10 @@
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-          %a.brand(href="#") Triang
+          = link_to "Triang", root_path, class: 'brand'
           .container.nav-collapse
             %ul.nav
-              %li= link_to "Link 1", "/path1"
-              %li= link_to "Link 2", "/path2"
-              %li= link_to "Link 3", "/path3"
+              %li= link_to "Teams", teams_path
 
     .container-fluid
 
@@ -45,7 +43,7 @@
         .span9
           = bootstrap_flash
           = yield
-    
+
       %footer
         %p &copy; Triang 2013
     /
