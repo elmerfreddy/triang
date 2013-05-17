@@ -17,5 +17,7 @@
 //= require ember
 //= require ember-data
 //= require_self
-//= require triang
-Triang = Ember.Application.create();
+// require triang
+//Triang = Ember.Application.create();
+
+// require_tree .
