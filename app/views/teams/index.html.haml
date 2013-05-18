@@ -5,6 +5,7 @@
   %thead
     %tr
       %th= model_class.human_attribute_name(:name)
+      %th= model_class.human_attribute_name(:category_id)
       %th= model_class.human_attribute_name(:foundation_date)
       %th= model_class.human_attribute_name(:created_at)
       %th=t '.actions', :default => t("helpers.actions")
@@ -12,6 +13,11 @@
     - @teams.each do |team|
       %tr
         %td= link_to team.name, team_path(team)
+        %td
+          - if team.category.present?
+            = link_to team.category_name, category_path(team.category)
+          - else
+            \-
         %td= team.foundation_date
         %td= time_ago_in_words team.created_at
         %td

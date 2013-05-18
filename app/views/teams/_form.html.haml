@@ -1,12 +1,7 @@
-= form_for @team, :html => { :class => 'form-horizontal' } do |f|
-  .control-group
-    = f.label :name, :class => 'control-label'
-    .controls
-      = f.text_field :name, :class => 'text_field'
-  .control-group
-    = f.label :foundation_date, :class => 'control-label'
-    .controls
-      = f.date_select :foundation_date, :class => 'date_select'
+= simple_form_for @team, :html => { :class => 'form-horizontal' } do |f|
+  = f.input :category_id, collection: Category.all
+  = f.input :name
+  = f.input :foundation_date
   .form-actions
-    = f.submit nil, :class => 'btn btn-primary'
+    = f.button :submit, class: 'btn-primary'
     = link_to t('.cancel', :default => t("helpers.links.cancel")), teams_path, :class => 'btn'
