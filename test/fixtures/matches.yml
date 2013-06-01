@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  team_id: 
+  team_vs_id: 
+  match_date: 2013-05-23
+
+two:
+  team_id: 
+  team_vs_id: 
+  match_date: 2013-05-23
