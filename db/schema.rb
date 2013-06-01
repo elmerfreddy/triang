@@ -11,13 +11,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130518171623) do
+ActiveRecord::Schema.define(:version => 20130524024725) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "matches", :force => true do |t|
+    t.integer  "team_id"
+    t.integer  "team_vs_id"
+    t.date     "match_date"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "matches", ["team_id"], :name => "index_matches_on_team_id"
+  add_index "matches", ["team_vs_id"], :name => "index_matches_on_team_vs_id"
 
   create_table "teams", :force => true do |t|
     t.string   "name"
