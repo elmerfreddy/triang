@@ -1,0 +1,11 @@
+- @match.gols.build unless @match.gols.any? { |g| g.new_record? }
+= simple_form_for @match, :html => { :class => 'form-horizontal' } do |f|
+  = f.input :match_date
+  = f.input :team_id, collection: Team.all
+  = f.input :team_vs_id, collection: Team.all
+  = f.simple_fields_for :gols do |f_gol|
+    = render 'gol_fields', f: f_gol
+
+  .form-actions
+    = f.button :submit, class: 'btn-primary'
+    = link_to t('.cancel', :default => t("helpers.links.cancel")), teams_path, :class => 'btn'

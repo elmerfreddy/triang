@@ -1,0 +1,25 @@
+- model_class = Match
+.page-header
+  %h4=t '.title', :default => model_class.model_name.human.pluralize
+%table.table.table-striped
+  %thead
+    %tr
+      %th= model_class.human_attribute_name(:team_id)
+      %th= model_class.human_attribute_name(:team_vs_id)
+      %th= model_class.human_attribute_name(:match_date)
+      %th=t '.actions', :default => t("helpers.actions")
+  %tbody
+    - @matches.each do |match|
+      %tr
+        %td
+          = link_to match.team_name, team_path(match.team)
+          (#{ match.get_gols(match.team) })
+        %td
+          = link_to match.team_vs_name, team_path(match.team_vs)
+          (#{ match.get_gols(match.team_vs) })
+        %td= match.match_date
+        %td
+          = link_to t('.edit', :default => t("helpers.links.edit")), edit_match_path(match), :class => 'btn btn-mini'
+          = link_to t('.destroy', :default => t("helpers.links.destroy")), match_path(match), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-mini btn-danger'
+
+= link_to t('.new', :default => t("helpers.links.new")), new_match_path, :class => 'btn btn-primary'
