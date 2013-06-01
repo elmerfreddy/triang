@@ -11,8 +11,12 @@
   %tbody
     - @matches.each do |match|
       %tr
-        %td= link_to match.team_name, team_path(match.team)
-        %td= link_to match.team_vs_name, team_path(match.team_vs)
+        %td
+          = link_to match.team_name, team_path(match.team)
+          (#{ match.get_gols(match.team) })
+        %td
+          = link_to match.team_vs_name, team_path(match.team_vs)
+          (#{ match.get_gols(match.team_vs) })
         %td= match.match_date
         %td
           = link_to t('.edit', :default => t("helpers.links.edit")), edit_match_path(match), :class => 'btn btn-mini'
